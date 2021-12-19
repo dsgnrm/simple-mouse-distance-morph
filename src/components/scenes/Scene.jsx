@@ -8,7 +8,7 @@ import DistanceGeometry from "../geometries/DistanceGeometry"
 
 function Scene() {
   const ref = useRef()
-  let num = 4
+  let num = 8
 
   const [windowData] = useState({
     lengthArr: rangeInclusive(0, window.innerWidth, window.innerWidth / num),
