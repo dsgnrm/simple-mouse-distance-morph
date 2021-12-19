@@ -1,6 +1,6 @@
-import { Box, Environment, Html, OrbitControls, Stats } from "@react-three/drei"
-import { Canvas, useFrame, useThree } from "@react-three/fiber"
-import React, { Suspense, useEffect, useRef, useState } from "react"
+import { Environment } from "@react-three/drei"
+import { Canvas } from "@react-three/fiber"
+import React, { Suspense, useRef, useState } from "react"
 import * as THREE from "three"
 import rangeInclusive from "range-inclusive"
 
@@ -8,12 +8,14 @@ import DistanceGeometry from "../geometries/DistanceGeometry"
 
 function Scene() {
   const ref = useRef()
-  let num = 8
+  let num = 11
 
   const [windowData] = useState({
     lengthArr: rangeInclusive(0, window.innerWidth, window.innerWidth / num),
     heightArr: rangeInclusive(0, window.innerHeight, window.innerWidth / num),
   })
+
+  console.log(windowData)
 
   const material = new THREE.MeshStandardMaterial({
     side: THREE.DoubleSide,
@@ -24,7 +26,6 @@ function Scene() {
 
   return (
     <Canvas dpr={2} antialias={true}>
-      {/* <Stats /> */}
       <Suspense fallback={null}>
         {windowData.lengthArr.map((pos, id) =>
           windowData.heightArr.map((pos2, i) => (
@@ -39,8 +40,6 @@ function Scene() {
 
         <Environment preset="sunset" intensity={4} />
       </Suspense>
-
-      {/* <OrbitControls ref={ref} /> */}
     </Canvas>
   )
 }

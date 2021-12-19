@@ -24,7 +24,7 @@ function DistanceGeometry({ index = 0, material, xPos, yPos, dataIndex }) {
   const [data] = useState(() => ({
     vector: new THREE.Vector3(
       xPos * ratio - width / 2,
-      yPos * ratio - height / 2,
+      yPos * ratio - height / 2 + 0.5,
       0
     ),
   }))
